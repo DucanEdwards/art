@@ -79,17 +79,14 @@ export default {
 
 <style scoped>
 #container{
-  position: absolute;
-  left: 0;
-  top: 0;
+  /*position: absolute;*/
+  /*left: 0;*/
+  /*top: 0;*/
 }
-span{
-  position:absolute;
-  left: 5px;
-  height: 5px;
-  color: white;
-}
-.back{
-  position: absolute;
-}
+/*span{*/
+/*  position:absolute;*/
+/*  left: 5px;*/
+/*  height: 5px;*/
+/*  color: white;*/
+/*}*/
 </style>

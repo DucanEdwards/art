@@ -1,13 +1,13 @@
 <template>
   <div class="drop">
-    <van-tag type="primary" round size="large">在下面选择</van-tag>
-    <svg t="1629270996209" class="icon" viewBox="100 -300 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4672" width="20" height="20"><path d="M511.997952 755.974268l365.02634-487.950584L146.975708 268.023684 511.997952 755.974268" p-id="4673"></path></svg>
+<!--    <van-tag type="primary" round size="large">请在下面选择作品</van-tag>-->
+<!--    <svg t="1629270996209" class="icon" viewBox="100 -300 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4672" width="20" height="20"><path d="M511.997952 755.974268l365.02634-487.950584L146.975708 268.023684 511.997952 755.974268" p-id="4673"></path></svg>-->
     <van-dropdown-menu>
-      <div>
-        <van-dropdown-item v-model="value1" :options="option1" @change="changeArt"/>
-      </div>
+      <van-dropdown-item v-model="value1" :options="option1" @change="changeArt"/>
       <van-dropdown-item v-model="value2" :options="option2" @change="changeArt1"/>
     </van-dropdown-menu>
+
+    <router-view></router-view>
   </div>
 </template>
 
@@ -35,22 +35,22 @@ export default {
     changeArt(value){
       if(value==1){
         console.log("van")
-        this.$router.push('/van');
+        this.$router.push('/3d/van');
       }
       if (value==2){
-        this.$router.push("/monet")
+        this.$router.push("/3d/monet")
       }
       if (value==3){
-        this.$router.push("/seurat")
+        this.$router.push("/3d/seurat")
       }
 
     },
     changeArt1(value){
       if (value=='b'){
-        this.$router.push("/newyork")
+        this.$router.push("/3d/newyork")
       }
       if (value=='c'){
-        this.$router.push("/greece")
+        this.$router.push("/3d/greece")
       }
 
     }

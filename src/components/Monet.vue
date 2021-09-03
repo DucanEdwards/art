@@ -78,9 +78,9 @@ export default {
 
 <style scoped>
 #container{
-  position: absolute;
-  left: 0;
-  top: 0;
+  /*position: absolute;*/
+  /*left: 0;*/
+  /*top: 0;*/
 }
 span{
   position:absolute;

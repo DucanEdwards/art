@@ -8,6 +8,10 @@ import Monet from  './components/Monet'
 import Seurat from "./components/Seurat";
 import Newyork from "./components/Newyork";
 import Greece from "./components/Greece";
+import Drop from "./components/3D";
+import Index from "./components/Index"
+import Gallery from "./components/Gallery";
+import Flat from "./components/Flat";
 
 
 Vue.use(Vant);
@@ -15,35 +19,57 @@ Vue.use(VueRouter)
 Vue.config.productionTip = false
 
 const routes=[
+  // {
+  //   path: "/gallery",
+  //   name:"gallery",
+  //   component: Gallery,
+  // },
   {
-    path:"/van",
-    name:"van",
-    component:Van,
+    path:"/",
+    name:"index",
+    component:Index,
   },
   {
-    path:"/monet",
-    name:"monet",
-    component:Monet,
+    path:"/3d",
+    name:"3d",
+    component:Drop,
+    children: [
+      {
+        path:'van',
+        name:'van',
+        component:Van,
+      },
+      {
+        path:"monet",
+        name:"monet",
+        component:Monet,
+      },
+      {
+        path: "seurat",
+        name:"seurat",
+        component:Seurat,
+      },
+      {
+        path: "newyork",
+        name:"newyork",
+        component:Newyork,
+      },
+      {
+        path: "greece",
+        name:"greece",
+        component:Greece,
+      }
+    ]
   },
+  // {
+  //   path: "/gallery",
+  //   name:"gallery",
+  //   component: Gallery
+  // },
   {
-    path: "/seurat",
-    name:"seurat",
-    component:Seurat,
-  },
-  {
-    path: "/seurat",
-    name:"seurat",
-    component:Seurat,
-  },
-  {
-    path: "/newyork",
-    name:"newyork",
-    component:Newyork,
-  },
-  {
-    path: "/greece",
-    name:"greece",
-    component:Greece,
+    path: "/flat",
+    name: "/flat",
+    component: Flat
   }
 ]
 
