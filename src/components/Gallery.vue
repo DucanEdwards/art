@@ -3,7 +3,7 @@
     <van-row gutter="10" v-for="(image, index) in imageList" :key="index">
         <div class="img">
           <van-image
-              v-lazy="image.img"
+              lazy-load
               :src="image.img"
               fit="cover"
               @click="onclick(index)"
