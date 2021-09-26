@@ -3,13 +3,17 @@
     <van-row gutter="10" v-for="(image, index) in imageList" :key="index">
         <div class="img">
           <van-image
+              v-lazy="image.img"
               :src="image.img"
               fit="cover"
               @click="onclick(index)"
           >
+            <template v-slot:loading>
+              <van-loading color="#1989fa" size="35" type="spinner"></van-loading>
+            </template>
           </van-image>
-          <span>{{image.title}}</span>
         </div>
+      <span>{{image.title}}</span>
     </van-row>
     <a href="https://www.artic.edu/">For more...</a>
   </div>

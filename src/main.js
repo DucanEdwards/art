@@ -12,8 +12,9 @@ import Drop from "./components/3D";
 import Index from "./components/Index"
 import Gallery from "./components/Gallery";
 import Flat from "./components/Flat";
+import { Lazyload } from 'vant';
 
-
+Vue.use(Lazyload);
 Vue.use(Vant);
 Vue.use(VueRouter)
 Vue.config.productionTip = false
