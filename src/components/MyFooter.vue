@@ -20,10 +20,10 @@ export default {
   methods: {
     onChange(index) {
       if(index==0){
-        this.$router.push("flat");
+        this.$router.push("/flat");
       }
       if(index==1){
-        this.$router.push("/3d")
+        this.$router.push("/3d/intro")
         Dialog({
           title:"3D鉴赏",
           message: '当你身在一个盒子中,或许会有不一样的体验! 哈哈,希望如此!',

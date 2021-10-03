@@ -10,8 +10,8 @@ import Newyork from "./components/Newyork";
 import Greece from "./components/Greece";
 import Drop from "./components/3D";
 import Index from "./components/Index"
-import Gallery from "./components/Gallery";
 import Flat from "./components/Flat";
+import Intro from "./components/Intro";
 import { Lazyload } from 'vant';
 
 Vue.use(Lazyload);
@@ -35,6 +35,11 @@ const routes=[
     name:"3d",
     component:Drop,
     children: [
+      {
+        path: 'intro',
+        name:'intro',
+        component: Intro
+      },
       {
         path:'van',
         name:'van',

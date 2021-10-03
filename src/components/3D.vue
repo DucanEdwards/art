@@ -25,7 +25,7 @@ export default {
         { text: '乔治·修拉', value: 3 },
       ],
       option2: [
-        { text: '纽约大都会艺术博物馆', value: 'a' },
+        { text: '纽约大都会博物馆', value: 'a' },
         { text: '镇馆之宝', value: 'b' },
         { text: '古希腊', value: 'c' },
       ],
@@ -33,8 +33,11 @@ export default {
   },
   methods:{
     changeArt(value){
+      if (value==0){
+        this.$router.push('/3d/intro');
+      }
       if(value==1){
-        console.log("van")
+        console.log(value)
         this.$router.push('/3d/van');
       }
       if (value==2){
@@ -46,6 +49,9 @@ export default {
 
     },
     changeArt1(value){
+      if (value=='a'){
+        this.$router.push('/3d/intro');
+      }
       if (value=='b'){
         this.$router.push("/3d/newyork")
       }
@@ -57,7 +63,7 @@ export default {
 
   },
   mounted() {
-    console.log("sakh")
+    console.log("挂载")
   }
 }
 </script>

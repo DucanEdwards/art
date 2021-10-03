@@ -1,6 +1,11 @@
 <template>
   <div class="bottom">
-    <van-row gutter="10" v-for="(image, index) in imageList" :key="index">
+    <van-radio-group v-model="radio" direction="horizontal" @change="radioChange" class="radio">
+      <van-radio name="1">List</van-radio>
+      <van-radio name="2">Swipe</van-radio>
+    </van-radio-group>
+
+    <van-row gutter="10" v-for="(image, index) in imageList" :key="index" v-if="show">
         <div class="img">
           <van-image
               lazy-load
@@ -15,6 +20,19 @@
         </div>
       <span>{{image.title}}</span>
     </van-row>
+
+    <div v-if="!show">
+      <van-swipe :autoplay="3000" vertical style="height: 300px;" ref="swipe" @change="onchange">
+        <van-swipe-item v-for="(image, index) in imageList" :key="index">
+          <van-image
+              lazy-load
+              :src="image.img"
+              height="100%"
+          />
+        </van-swipe-item>
+      </van-swipe>
+      <div class="title"><span>{{title}}</span></div>
+    </div>
     <a href="https://www.artic.edu/">For more...</a>
   </div>
 </template>
@@ -22,13 +40,20 @@
 
 <script>
 import {ImagePreview} from "vant";
+import { Lazyload } from 'vant';
+import Vue from "vue";
+
+Vue.use(Lazyload);
+
 //@click="onclick(image.img)"
 
 export default {
   name: "Gallery",
   data(){
     return{
-      show:false
+      show:true,
+      radio: '1',
+      title:this.imageList[0].title
     }
   },
   props:{
@@ -46,6 +71,13 @@ export default {
         swipeDuration:1000,
         maxZoom:5
       });
+    },
+    onchange(index){
+      this.title=this.imageList[index].title
+      this.$refs.swipe.resize();
+    },
+    radioChange(){
+      this.show=!this.show
     }
   }
 }
@@ -57,5 +89,17 @@ export default {
 }
 .bottom{
   padding-bottom: 100px;
+}
+.radio{
+  display: flex;
+  justify-content: center;
+  padding:5px;
+  margin: 2px;
+}
+.radio>van-radio{
+  margin: 0 auto;
+}
+.title{
+  margin: 20px;
 }
 </style>
